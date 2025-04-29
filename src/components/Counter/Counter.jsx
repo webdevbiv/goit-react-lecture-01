@@ -1,40 +1,37 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { decrement, increment, reset, setStep } from '../../redux/counterSlice';
 
 const Counter = () => {
-  const counter = useSelector(state => state.counter.counter);
+  const value = useSelector(state => state.counter.value);
   const step = useSelector(state => state.counter.step);
 
   const dispatch = useDispatch();
 
   const handleIncrement = () => {
-    // Logic to increment the counter
-    dispatch({ type: 'increment' });
+    dispatch(increment());
   };
 
   const handleDecrement = () => {
-    // Logic to decrement the counter
-    dispatch({ type: 'decrement' });
+    dispatch(decrement());
   };
 
   const handleChangeStep = e => {
-    // Logic to set the step value
     const value = e.target.value;
     if (!isNaN(value)) {
-      dispatch({ type: 'setStep', payload: Number(value) });
+      dispatch(setStep(Number(value)));
     } else {
       alert('Please enter a valid number');
     }
   };
 
   const handleReset = () => {
-    // Logic to handle input change
-    dispatch({ type: 'reset' });
+    dispatch(reset());
   };
 
   return (
     <div>
       <div>
-        <h1>{counter}</h1>
+        <h1>{value}</h1>
         <input
           value={step}
           type="text"
@@ -56,4 +53,5 @@ const Counter = () => {
     </div>
   );
 };
+
 export default Counter;
