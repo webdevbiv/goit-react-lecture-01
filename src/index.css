@@ -6,6 +6,8 @@ html {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   line-height: 1.2;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 *,
@@ -16,6 +18,8 @@ html {
 
 body {
   margin: 0;
+  background-color: #fff;
+  color: #000;
 }
 
 h1,
@@ -40,8 +44,12 @@ a {
   text-decoration: none;
 }
 
-button {
+button,
+input {
   cursor: pointer;
+  border: 0;
+  background: none;
+  font: inherit;
 }
 
 img {
